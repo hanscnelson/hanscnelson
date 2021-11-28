@@ -1,6 +1,6 @@
 - 👋 Hi, I’m @hanscnelson
 - 👀 I’m interested in Web3
-- 🌱 I’m currently learning create NFTs on Solana
+- 🌱 I’m currently learning to create NFTs on Solana
 - 💞️ I’m looking to collaborate on Web3 projects that advance sustainable energy, space exploration, and collaborative altruism
 - 📫 How to reach me: On Twitter @Web3lon &/or @mpporpoises
 
