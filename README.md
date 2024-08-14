@@ -1,8 +1,8 @@
 - 👋 Hi, I’m @hanscnelson
-- 👀 I’m interested in Web3
-- 🌱 I’m currently learning to create NFTs on Solana
-- 💞️ I’m looking to collaborate on Web3 projects that advance sustainable energy, space exploration, and collaborative altruism
-- 📫 How to reach me: On Twitter @Web3lon &/or @mpporpoises
+- 👀 I’m interested in disruptive innovation, investing, futurism, & geopolitics
+- 🌱 I’m currently experimenting w/ using AI to help build tools to support my content creation aspirations
+- 💞️ I’m looking to collaborate on projects that provide creators w/ tools to manage content creation
+- 📫 How to reach me: On Twitter @hanscnelson
 
 <!---
 hanscnelson/hanscnelson is a ✨ special ✨ repository because its `README.md` (this file) appears on your GitHub profile.
