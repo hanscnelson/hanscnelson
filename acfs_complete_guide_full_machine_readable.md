@@ -189,8 +189,12 @@ Inject the same mistake at different layers. The deeper it lands, the more downs
 
 **Rework Intuition**
 Plan Space: Fixes are pure reasoning. Zero code churn.
+
 Bead Space: Fixes rewrite orchestration. High coordination cost.
+
 Code Space: Fixes pay the double-tax: implementation + cleanup.
+
+---
 
 | Layer      | Rework Multiplier | Inject Scenario                                         |
 |-----------|-------------------|---------------------------------------------------------|
