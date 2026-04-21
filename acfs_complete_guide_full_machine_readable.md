@@ -29,7 +29,7 @@ This is the end-to-end methodology for creating software with frontier AI models
 |------|-----------|-------------------|-------------------|-----------------|
 | 1    | 1.0×      | 58%               | 42%               | 28%             |
 | 3    | 1.8×      | 70%               | 60%               | 52%             |
-| 6    | 3.2×      | 82%               | 78%               | 16%             |
+| 6    | 3.2×      | 82%               | 78%               | 76%             |
 
 **Stage I/O mapping:**
 
@@ -511,10 +511,14 @@ Once you convert the plan docs into beads, you're supposed to not really need to
 ### Beads CLI Quick Reference
 
 ```bash
-br create --title "..." --priority 2 --label backend    # Create issue br list --status open --json                             # List open issues
-br ready --json                                          # Show unblocked tasks br show <id>                                             # View issue details
-br update <id> --status in_progress                      # Claim task br close <id> --reason "Completed"                       # Close task
-br dep add <id> <other-id>                               # Add dependency br comments add <id> "Found root cause..."               # Add comment
+br create --title "..." --priority 2 --label backend     # Create issue
+br list --status open --json                             # List open issues
+br ready --json                                          # Show unblocked tasks
+br show <id>                                             # View issue details
+br update <id> --status in_progress                      # Claim task
+br close <id> --reason "Completed"                       # Close task
+br dep add <id> <other-id>                               # Add dependency
+br comments add <id> "Found root cause..."               # Add comment
 br sync --flush-only                                     # Export to JSONL (no git ops)
 ```
 
