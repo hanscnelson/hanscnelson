@@ -177,25 +177,30 @@ And that isn't at all in tension with my approach, as I hope to illustrate here.
 
 ### Three Reasoning Spaces
 
-#### ⊛ Cost Architecture — Rework Escalation
-
-**Three layers — deeper = costlier:**
-
-| Layer      | Rework Multiplier | Inject Scenario                                         |
-|-----------|-------------------|---------------------------------------------------------|
-| Plan      | 1×                | Architectural shift at the prose layer. Nothing downstream has solidified. The project remains liquid and cheap to pivot. |
-| Bead      | 5×                | Beads re-sequenced. Implementation must halt and restart from the new dependency order. Coordination cost spikes. |
-| Code      | 25×               | Written code must be found, understood, and changed. Downstream tests break. Reconciliation across agents multiplies the blast radius. |
-
-> Planning earns its keep because it is the cheapest layer for global reasoning.
-
-> *Interactive version: "Inject Leak" buttons at each layer show cascading rework cost with visual escalation.*
-
 The methodology separates work into three spaces, each with a different artifact and a different question it answers:
+
+#### ⊛ Cost Architecture — Rework Escalation
 
 Where you catch the bug determines the rework bill
 
 Inject the same mistake at different layers. The deeper it lands, the more downstream structure has already hardened around it. This is the Law of Rework Escalation.
+
+**Three layers — deeper = costlier:**
+
+**Rework Intuition**
+Plan Space: Fixes are pure reasoning. Zero code churn.
+Bead Space: Fixes rewrite orchestration. High coordination cost.
+Code Space: Fixes pay the double-tax: implementation + cleanup.
+
+| Layer      | Rework Multiplier | Inject Scenario                                         |
+|-----------|-------------------|---------------------------------------------------------|
+| Plan      | 1×                | Architectural shift at the prose layer. Nothing downstream has solidified. The project remains liquid and extremely cheap to pivot. |
+| Bead      | 5×                | Expensive pivot. Executable memory is now misaligned. Task boundaries, dependency edges, and priorities must be manually re-validated. |
+| Code      | 25×               | Catastrophic failure. The system has already paid to embody the mistake in binary. Every line of code written must now be un-written and re-verified. |
+
+> Planning earns its keep because it is the cheapest layer for global reasoning.
+
+> *Interactive version: "Inject Leak" buttons at each layer show cascading rework cost with visual escalation.*
 
 | Space | Primary Artifact | What You Decide There |
 |-------|-----------------|----------------------|
