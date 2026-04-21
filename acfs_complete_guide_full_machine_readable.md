@@ -125,15 +125,25 @@ You spend 85% of your time on planning. The first time you try it, it feels wron
 The models are far smarter when reasoning about a plan that is very detailed and fleshed out but still trivially small enough to easily fit within their context window. This is really the key insight behind my obsessive focus on planning and why I spend 80%+ of my time on that part.
 Interactive: The Context Horizon
 
-Why reasoning in plan-space dominates reasoning in code-space as projects scale.
+#### ⊛ The Context Horizon
 
-PROTOTYPE
-PRODUCTION
-TOKEN LIMIT HORIZON
-PLAN SPACE
-Context Safe
-CODE SPACE
-In context
+SVG diagram showing why reasoning in plan-space dominates reasoning in code-space
+as projects scale from PROTOTYPE to PRODUCTION.
+Elements:
+- SLIDER: Drags from PROTOTYPE (left) to PRODUCTION (right).
+- TOKEN LIMIT HORIZON: A vertical boundary representing the model's context window.
+- PLAN SPACE: A horizontal bar that remains entirely to the left of the horizon at all scales.
+Label: "Context Safe"
+- CODE SPACE: A horizontal bar that starts left of the horizon (Prototype) but
+crosses it and extends far to the right as the project grows (Production).
+Label: "Truncated"
+State — PROTOTYPE:
+Code Space is small and fits within the token limit. Global reasoning is possible in both spaces.
+State — PRODUCTION:
+Code Space has far exceeded the token limit. Reasoning is now purely local/truncated.
+Plan Space still fits entirely, enabling continued global reasoning.
+
+> *Interactive version available in the original web interface.*
 
 A markdown plan, even a massive 6,000-line one, is still vastly smaller than the codebase it describes. When models reason about a plan instead of raw implementation, they can hold the whole system in their context window at once. Once you start turning that plan into code, the system rapidly becomes too large to understand holistically. You are doing global reasoning while global reasoning is still possible.
 
@@ -166,26 +176,6 @@ This extends even further when adding major features to existing projects. You c
 And that isn't at all in tension with my approach, as I hope to illustrate here.
 
 ### Three Reasoning Spaces
-
-#### ⊛ The Context Horizon
-
-SVG diagram showing why reasoning in plan-space dominates reasoning in code-space
-as projects scale from PROTOTYPE to PRODUCTION.
-Elements:
-- SLIDER: Drags from PROTOTYPE (left) to PRODUCTION (right).
-- TOKEN LIMIT HORIZON: A vertical boundary representing the model's context window.
-- PLAN SPACE: A horizontal bar that remains entirely to the left of the horizon at all scales.
-Label: "Context Safe"
-- CODE SPACE: A horizontal bar that starts left of the horizon (Prototype) but
-crosses it and extends far to the right as the project grows (Production).
-Label: "Truncated"
-State — PROTOTYPE:
-Code Space is small and fits within the token limit. Global reasoning is possible in both spaces.
-State — PRODUCTION:
-Code Space has far exceeded the token limit. Reasoning is now purely local/truncated.
-Plan Space still fits entirely, enabling continued global reasoning.
-
-> *Interactive version available in the original web interface.*
 
 #### ⊛ Cost Architecture — Rework Escalation
 
