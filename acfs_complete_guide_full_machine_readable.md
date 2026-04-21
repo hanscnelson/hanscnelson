@@ -1,8 +1,10 @@
 ---
-title: "The Complete Flywheel Guide - Planning, Beads & Agent Swarms" source: "https://agent-flywheel.com/complete-guide"
+title: "The Complete Flywheel Guide - Planning, Beads & Agent Swarms"
+source: "https://agent-flywheel.com/complete-guide"
 author: "[[Jeffrey Emanuel]]"
 created: 2026-04-15
-description: "A comprehensive guide to Jeffrey Emanuel's methodology for creating software with frontier AI models, exhaustive markdown planning, beads-based task management, and coordinated agent swarms." tags: ["clippings", "ACFS", "agentic-coding", "flywheel"]
+description: "A comprehensive guide to Jeffrey Emanuel's methodology for creating software with frontier AI models, exhaustive markdown planning, beads-based task management, and coordinated agent swarms."
+tags: ["clippings", "ACFS", "agentic-coding", "flywheel"]
 ---
 
 THE OFFICIAL METHODOLOGY The Agentic Coding
@@ -19,34 +21,27 @@ This is the end-to-end methodology for creating software with frontier AI models
 
 ### Why the Flywheel Compounds
 
-<!-- INTERACTIVE GRAPHIC: Loop Compounding Graphic
-     SVG flywheel diagram showing five stages (Intent, Planning, Translation, Execution, Harden)
-     arranged in a cycle with a center multiplier. Three loop-count buttons cycle through
-     stages; the "Focused Context" panel on the right updates per stage.
+#### ⊛ Loop Compounding Graphic
 
-     Buttons: LOOP 1, LOOP 3, LOOP 6, AUTO-TOUR ACTIVE
-     Clicking a loop button updates the multiplier and metrics; clicking a stage name
-     (or letting auto-tour cycle) updates Focused Context input/output.
+**Five stages in a cycle:** Intent → Planning → Translation → Execution → Harden
 
-     State — Loop 1 (multiplier 1.0x):
-       Metrics: Planning Leverage 58%, Swarm Determinism 42%, Reusable Memory 28%
-       Stages cycle through:
-         Intent:      Input: Fuzzy goals → Output: Mental model
-         Planning:    Input: Mental model → Output: Markdown plan
-         Translation: Input: Markdown plan → Output: Bead graph
-         Execution:   Input: Beads + AGENTS.md → Output: Code changes
-         Harden:      Input: Code changes → Output: Verified system
+| Loop | Multiplier | Planning Leverage | Swarm Determinism | Reusable Memory |
+|------|-----------|-------------------|-------------------|-----------------|
+| 1    | 1.0×      | 58%               | 42%               | 28%             |
+| 3    | 1.8×      | 70%               | 60%               | 52%             |
+| 6    | 3.2×      | 82%               | 78%               | 16%             |
 
-     State — Loop 3 (multiplier 1.8x):
-       Metrics: Planning Leverage 70%, Swarm Determinism 60%, Reusable Memory 52%
-       Same five stages; input/output per stage is identical but metrics reflect
-       compounding returns after three completed cycles.
+**Stage I/O mapping:**
 
-     State — Loop 6 (multiplier 3.2x):
-       Metrics: Planning Leverage 82%, Swarm Determinism 78%, Reusable Memory 16%
-       Same five stages; highest multiplier, strongest metrics, but Reusable Memory
-       drops as context needs grow with system complexity.
--->
+| Stage        | Input                    | Output              |
+|-------------|--------------------------|----------------------|
+| Intent      | Fuzzy goals              | Mental model         |
+| Planning    | Mental model             | Markdown plan        |
+| Translation | Markdown plan            | Bead graph           |
+| Execution   | Beads + AGENTS.md        | Code changes         |
+| Harden      | Code changes             | Verified system      |
+
+> *Interactive version: buttons cycle through loop counts; "Focused Context" panel updates per stage.*
 
 Step through the loop. The same project gets faster and safer because every completed cycle upgrades the artifacts feeding the next one. This is the compounding return on planning.
 
@@ -172,52 +167,39 @@ And that isn't at all in tension with my approach, as I hope to illustrate here.
 
 ### Three Reasoning Spaces
 
-<!-- INTERACTIVE VISUALIZATION: The Context Horizon
-     SVG diagram showing why reasoning in plan-space dominates reasoning in code-space
-     as projects scale from PROTOTYPE to PRODUCTION.
+#### ⊛ The Context Horizon
 
-     Elements:
-       - SLIDER: Drags from PROTOTYPE (left) to PRODUCTION (right).
-       - TOKEN LIMIT HORIZON: A vertical boundary representing the model's context window.
-       - PLAN SPACE: A horizontal bar that remains entirely to the left of the horizon at all scales.
-         Label: \"Context Safe\"
-       - CODE SPACE: A horizontal bar that starts left of the horizon (Prototype) but
-         crosses it and extends far to the right as the project grows (Production).
-         Label: \"Truncated\"
+SVG diagram showing why reasoning in plan-space dominates reasoning in code-space
+as projects scale from PROTOTYPE to PRODUCTION.
+Elements:
+- SLIDER: Drags from PROTOTYPE (left) to PRODUCTION (right).
+- TOKEN LIMIT HORIZON: A vertical boundary representing the model's context window.
+- PLAN SPACE: A horizontal bar that remains entirely to the left of the horizon at all scales.
+Label: "Context Safe"
+- CODE SPACE: A horizontal bar that starts left of the horizon (Prototype) but
+crosses it and extends far to the right as the project grows (Production).
+Label: "Truncated"
+State — PROTOTYPE:
+Code Space is small and fits within the token limit. Global reasoning is possible in both spaces.
+State — PRODUCTION:
+Code Space has far exceeded the token limit. Reasoning is now purely local/truncated.
+Plan Space still fits entirely, enabling continued global reasoning.
 
-     State — PROTOTYPE:
-       Code Space is small and fits within the token limit. Global reasoning is possible in both spaces.
-     State — PRODUCTION:
-       Code Space has far exceeded the token limit. Reasoning is now purely local/truncated.
-       Plan Space still fits entirely, enabling continued global reasoning.
--->
+> *Interactive version available in the original web interface.*
 
-<!-- INTERACTIVE GRAPHIC: Cost Architecture — Rework Escalation
-     Three-layer cost injection simulator. Click \"Inject Leak\" at each layer to see cascading rework cost.
+#### ⊛ Cost Architecture — Rework Escalation
 
-     Layers & Multipliers:
-       - Plan Layer: 1x cost
-       - Bead Layer: 5x cost
-       - Code Layer: 25x cost
+**Three layers — deeper = costlier:**
 
-     State — Default:
-       All layers shown. Strategic takeaway: \"Planning earns its keep because it is the cheapest layer for
-       global reasoning.\"
+| Layer      | Rework Multiplier | Inject Scenario                                         |
+|-----------|-------------------|---------------------------------------------------------|
+| Plan      | 1×                | Architectural shift at the prose layer. Nothing downstream has solidified. The project remains liquid and cheap to pivot. |
+| Bead      | 5×                | Beads re-sequenced. Implementation must halt and restart from the new dependency order. Coordination cost spikes. |
+| Code      | 25×               | Written code must be found, understood, and changed. Downstream tests break. Reconciliation across agents multiplies the blast radius. |
 
-     State — Plan Layer Inject:
-       \"Architectural shift at the prose layer. Nothing downstream has solidified.
-       The project remains liquid and extremely cheap to pivot.\"
+> Planning earns its keep because it is the cheapest layer for global reasoning.
 
-     State — Bead Layer Inject:
-       \"Beads re-sequenced. Implementation must halt and restart from the new
-       dependency order. Coordination cost spikes.\"
-
-     State — Code Layer Inject:
-       \"Written code must be found, understood, and changed. Downstream tests
-       break. Reconciliation across agents multiplies the blast radius.\"
-
-     CONTROL: RESET SIMULATION button returns to default state.
--->
+> *Interactive version: "Inject Leak" buttons at each layer show cascading rework cost with visual escalation.*
 
 The methodology separates work into three spaces, each with a different artifact and a different question it answers:
 
@@ -225,29 +207,11 @@ Where you catch the bug determines the rework bill
 
 Inject the same mistake at different layers. The deeper it lands, the more downstream structure has already hardened around it. This is the Law of Rework Escalation.
 
-Plan Space
-Bead Space
-Code Space
-Plan Space
-
-Bead Space
-
-Code Space
-
-SPACE
-Plan space
-PRIMARY ARTIFACT
-Large markdown plan
-WHAT YOU DECIDE THERE Architecture, features, workflows, tradeoffs — the whole system still fits in context
-SPACE
-Bead space
-PRIMARY ARTIFACT
-br issues + dependency graph WHAT YOU DECIDE THERE
-Task boundaries, execution order, embedded context — agents need explicit, local work units SPACE
-Code space
-PRIMARY ARTIFACT
-Source files + tests
-WHAT YOU DECIDE THERE Implementation and verification — the plan has already constrained the high-level decisions
+| Space | Primary Artifact | What You Decide There |
+|-------|-----------------|----------------------|
+| **Plan space** | Large markdown plan | Architecture, features, workflows, tradeoffs — the whole system still fits in context |
+| **Bead space** | `br` issues + dependency graph | Task boundaries, execution order, embedded context — agents need explicit, local work units |
+| **Code space** | Source files + tests | Implementation and verification — the plan has already constrained the high-level decisions |
 
 Plan space is where you figure out what the system should be. Bead space is where you turn that into executable memory, a graph of self-contained work units detailed enough that agents don't have to keep consulting the full plan. Code space is where agents implement, review, and test locally. The key is knowing which space you're in: if you are still redesigning the product, stay in plan space. If you are mainly packaging the work for execution, move to bead space.
 
@@ -287,34 +251,32 @@ That is still only the beginning. But it already shows the difference between or
 
 ### Multi-Model Plans
 
-<!-- INTERACTIVE STUDIO: Best-of-all-worlds synthesis
-     Toggle proposal plans on and off, then drag the refinement dial.
+#### ⊛ Best-of-all-worlds synthesis
 
-     Elements:
-       - SLIDER: \"Refinement round\" (5 positions)
-       - TOGGLES: Model proposal plans (GPT Pro, Claude Opus, Gemini, Grok Heavy)
+Toggle proposal plans on and off, then drag the refinement dial.
+Elements:
+- SLIDER: "Refinement round" (5 positions)
+- TOGGLES: Model proposal plans (GPT Pro, Claude Opus, Gemini, Grok Heavy)
+State — Position 1 (RAW MERGE):
+"The plan is still absorbing strengths and closing obvious gaps."
+State — Position 2 (FIRST INTEGRATION):
+"The plan is still absorbing strengths and closing obvious gaps."
+State — Position 3 (REVISION PRESSURE):
+"Fresh rounds are sanding down contradictions and exposing edge cases."
+State — Position 4 (FRESH-EYES POLISH):
+"Fresh rounds are sanding down contradictions and exposing edge cases."
+State — Position 5 (CONVERGED DRAFT):
+"You are now near the point where improvements are incremental."
+Model Contributions (All 4 active = HYBRID PLAN QUALITY 100%):
+- GPT Pro (Global Arbiter): System-wide coherence. Best-of-all-worlds synthesis.
+- Claude Opus (Implementation Realist): Execution detail. Sharp structural edits.
+- Gemini (Coverage Expander): Alternative framings. Missed edge cases.
+- Grok Heavy (Assumption Stress-Test): Counterintuitive options. Pressure-testing assumptions.
+Metric Gains (at 100%):
+ARCHITECTURE: 100%, WORKFLOW COVERAGE: 100%, FAILURE MODES: 100%,
+NOVEL IDEAS: 100%, EXECUTION READINESS: 100%
 
-     State — Position 1 (RAW MERGE):
-       \"The plan is still absorbing strengths and closing obvious gaps.\"
-     State — Position 2 (FIRST INTEGRATION):
-       \"The plan is still absorbing strengths and closing obvious gaps.\"
-     State — Position 3 (REVISION PRESSURE):
-       \"Fresh rounds are sanding down contradictions and exposing edge cases.\"
-     State — Position 4 (FRESH-EYES POLISH):
-       \"Fresh rounds are sanding down contradictions and exposing edge cases.\"
-     State — Position 5 (CONVERGED DRAFT):
-       \"You are now near the point where improvements are incremental.\"
-
-     Model Contributions (All 4 active = HYBRID PLAN QUALITY 100%):
-       - GPT Pro (Global Arbiter): System-wide coherence. Best-of-all-worlds synthesis.
-       - Claude Opus (Implementation Realist): Execution detail. Sharp structural edits.
-       - Gemini (Coverage Expander): Alternative framings. Missed edge cases.
-       - Grok Heavy (Assumption Stress-Test): Counterintuitive options. Pressure-testing assumptions.
-
-     Metric Gains (at 100%):
-       ARCHITECTURE: 100%, WORKFLOW COVERAGE: 100%, FAILURE MODES: 100%,
-       NOVEL IDEAS: 100%, EXECUTION READINESS: 100%
--->
+> *Interactive version available in the original web interface.*
 
 For the best results, ask multiple frontier models to independently create plans for the same project. GPT Pro, Claude Opus, Gemini with Deep Think, Grok Heavy. Each comes up with pretty different plans. Different frontier models have different "tastes" and blind spots. Passing a plan through a gauntlet of different models is the cheapest way to buy architectural robustness.
 
@@ -500,27 +462,26 @@ Fresh agents can execute without improvising architecture or silently dropping i
 
 ### Beads as Executable Memory
 
-<!-- INTERACTIVE EXHIBIT: Plan-to-beads conversion
-     Toggle between \"Thin beads\" and \"Context-rich beads\" views.
+#### ⊛ Plan-to-beads conversion
 
-     State — Thin Beads:
-       Terse, single-line task descriptions.
-       Example: \"Implement multipart file upload for PDFs and markdown.\"
+Toggle between "Thin beads" and "Context-rich beads" views.
+State — Thin Beads:
+Terse, single-line task descriptions.
+Example: "Implement multipart file upload for PDFs and markdown."
+State — Context-Rich Beads:
+Detailed work packets including OUTCOME, ACCEPTANCE CRITERIA, TESTS, DEPENDENCIES, and ADMIN HOOKS.
+Example (BR-101): "Validate uploads, chunk large files, parse them, and emit ingestion telemetry."
+Translation Mapping (Plan Concept → Rich Bead):
+1. File Upload Core: "Implies S3 provisioning, chunking, progress states" → BR-101 & BR-102.
+2. Search Indexing: "Requires background queue and embeddings provider" → BR-102.
+3. Failure Dashboard: "Depends on error states defined during indexing" → BR-103.
+4. Authentication: "Fundamental dependency; nothing else can be tested until this works" → BR-104.
+5. E2E Testing: "Must be modeled as its own bead depending on UI stability" → BR-105.
+6. Semantic Indexing: "Depends on PGVector configuration and population" → BR-101 & BR-102.
+7. Admin Dashboard: "Needs authentication and indexing status API" → BR-103 & BR-104.
+8. E2E Tests: "Must run absolutely last after UI and backend stability" → BR-105.
 
-     State — Context-Rich Beads:
-       Detailed work packets including OUTCOME, ACCEPTANCE CRITERIA, TESTS, DEPENDENCIES, and ADMIN HOOKS.
-       Example (BR-101): \"Validate uploads, chunk large files, parse them, and emit ingestion telemetry.\"
-
-     Translation Mapping (Plan Concept → Rich Bead):
-       1. File Upload Core: \"Implies S3 provisioning, chunking, progress states\" → BR-101 & BR-102.
-       2. Search Indexing: \"Requires background queue and embeddings provider\" → BR-102.
-       3. Failure Dashboard: \"Depends on error states defined during indexing\" → BR-103.
-       4. Authentication: \"Fundamental dependency; nothing else can be tested until this works\" → BR-104.
-       5. E2E Testing: \"Must be modeled as its own bead depending on UI stability\" → BR-105.
-       6. Semantic Indexing: \"Depends on PGVector configuration and population\" → BR-101 & BR-102.
-       7. Admin Dashboard: \"Needs authentication and indexing status API\" → BR-103 & BR-104.
-       8. E2E Tests: \"Must run absolutely last after UI and backend stability\" → BR-105.
--->
+> *Interactive version available in the original web interface.*
 
 The plan is still the best artifact for whole-system thought. But once a swarm is involved, what you need is not a beautiful essay. You need a task graph that carries enough local context for agents to act correctly without repeatedly loading the whole project back into memory. If the beads are weak, the swarm becomes improvisational. If the beads are rich, the swarm becomes almost mechanical.
 
@@ -549,12 +510,13 @@ Once you convert the plan docs into beads, you're supposed to not really need to
 
 ### Beads CLI Quick Reference
 
-bash
+```bash
 br create --title "..." --priority 2 --label backend    # Create issue br list --status open --json                             # List open issues
 br ready --json                                          # Show unblocked tasks br show <id>                                             # View issue details
 br update <id> --status in_progress                      # Claim task br close <id> --reason "Completed"                       # Close task
 br dep add <id> <other-id>                               # Add dependency br comments add <id> "Found root cause..."               # Add comment
 br sync --flush-only                                     # Export to JSONL (no git ops)
+```
 
 Priority uses numbers: P0=critical, P1=high, P2=medium, P3=low, P4=backlog. Types: task, bug, feature, epic, question, docs. br ready shows only unblocked work. Storage is a SQLite + JSONL hybrid; the JSONL files commit with your code.
 
@@ -578,35 +540,32 @@ This prompt keeps the system from freezing beads too early. It tells the model t
 
 ### Convergence Detection: When to Stop
 
-<!-- INTERACTIVE SIMULATOR: Convergence Detection
-     Four sliders with weights and presets showing bead polishing convergence.
+#### ⊛ Convergence Detection
 
-     State — DRAFT:
-       Dependencies 10%, Content Similarity 10%, Length Delta 15%, Semantic Density 12%.
-       OVERALL CONVERGENCE: 11.5%.
-       Status: \"Chaotic Expansion. Keep polishing. High structural volatility.\"
+Four sliders with weights and presets showing bead polishing convergence.
+State — DRAFT:
+Dependencies 10%, Content Similarity 10%, Length Delta 15%, Semantic Density 12%.
+OVERALL CONVERGENCE: 11.5%.
+Status: "Chaotic Expansion. Keep polishing. High structural volatility."
+State — MID:
+Dependencies 50%, Content Similarity 45%, Length Delta 50%, Semantic Density 52%.
+OVERALL CONVERGENCE: 49.0%.
+Status: "Rapid Refinement. Good progress. Run 1-2 more passes."
+State — READY:
+Dependencies 80%, Content Similarity 75%, Length Delta 85%, Semantic Density 78%.
+OVERALL CONVERGENCE: 79.0%.
+Status: "Incremental Tuning. Ready to move on to implementation."
+State — SHIP:
+Dependencies 95%, Content Similarity 95%, Length Delta 98%, Semantic Density 96%.
+OVERALL CONVERGENCE: 95.8%.
+Status: "Stable State (Do not touch). Diminishing returns; any further changes are cosmetic."
+SIDER WEIGHTS (Fixed):
+- Dependencies Stabilizing: 25%
+- Content Similarity Rising: 30%
+- Length Delta Approaching Zero: 20%
+- Semantic Density Plateau: 25%
 
-     State — MID:
-       Dependencies 50%, Content Similarity 45%, Length Delta 50%, Semantic Density 52%.
-       OVERALL CONVERGENCE: 49.0%.
-       Status: \"Rapid Refinement. Good progress. Run 1-2 more passes.\"
-
-     State — READY:
-       Dependencies 80%, Content Similarity 75%, Length Delta 85%, Semantic Density 78%.
-       OVERALL CONVERGENCE: 79.0%.
-       Status: \"Incremental Tuning. Ready to move on to implementation.\"
-
-     State — SHIP:
-       Dependencies 95%, Content Similarity 95%, Length Delta 98%, Semantic Density 96%.
-       OVERALL CONVERGENCE: 95.8%.
-       Status: \"Stable State (Do not touch). Diminishing returns; any further changes are cosmetic.\"
-
-     SIDER WEIGHTS (Fixed):
-       - Dependencies Stabilizing: 25%
-       - Content Similarity Rising: 30%
-       - Length Delta Approaching Zero: 20%
-       - Semantic Density Plateau: 25%
--->
+> *Interactive version available in the original web interface.*
 
 Drag the sliders or pick a preset to see how beads tighten into a stable state before implementation begins.
 
@@ -831,26 +790,28 @@ Each tool is essential but insufficient alone. Agent Mail without beads leaves a
 
 ### Agent Mail: Why Naive Coordination Fails
 
-<!-- INTERACTIVE GRAPHIC: Coordination Triangle
-     Three-sided diagram showing BEADS, AGENT MAIL, and BV as interlocking tools.
-     
-     States (click each node to highlight its role):
-       - BEADS: "The durable, localized issue state." — br tool for issue tracking.
-       - AGENT MAIL: "The high-bandwidth negotiation layer." — identities, inbox/outbox, file reservations.
-       - BV: "The graph-theory compass for triage." — PageRank, betweenness, HITS analysis.
-     
-     SYSTEM ARCHITECTURE note: "The trio is not three nice-to-have tools. It is one operating
-     system split into memory, communication, and leverage analysis. Remove any side of the
-     triangle and the swarm loses determinism."
--->
+#### ⊛ Coordination Triangle
 
-<!-- INTERACTIVE VISUALIZATION: Broadcast vs. Point-to-Point
-     Toggle between Broadcast and Agent Mail modes.
-     Broadcast state: "O(N²) MESSAGES / HIGH TOKEN BURN / CONTEXT DILUTION"
-                      All agents receive all messages regardless of relevance.
-     Agent Mail state: "O(1) MESSAGES / ADVISORY LOCKS / HIGH SNR"
-                       Targeted delivery. Only relevant agents receive messages.
--->
+**Three interlocking tools — one operating system:**
+
+| Tool       | Role                              | Key Capability                                  |
+|-----------|-----------------------------------|------------------------------------------------|
+| **Beads** | Durable, localized issue state    | `br` tool for issue tracking                    |
+| **Agent Mail** | High-bandwidth negotiation layer | Identities, inbox/outbox, file reservations  |
+| **bv**    | Graph-theory compass for triage   | PageRank, betweenness, HITS analysis            |
+
+> The trio is not three nice-to-have tools. It is one operating system split into memory, communication, and leverage analysis. Remove any side of the triangle and the swarm loses determinism.
+
+> *Interactive version: click each node to highlight its role in the coordination stack.*
+
+#### ⊛ Broadcast vs. Point-to-Point
+
+| Mode         | Message Cost | Locking         | Signal Quality   | Behavior                              |
+|-------------|-------------|-----------------|-----------------|---------------------------------------|
+| **Broadcast**    | O(N²)       | None            | Low (context dilution) | All agents receive all messages regardless of relevance. High token burn. |
+| **Agent Mail**   | O(1)        | Advisory (TTL)  | High SNR        | Targeted delivery. Only relevant agents receive messages.              |
+
+> *Interactive version: toggle between modes to see message flow and token cost comparison.*
 
 Building your own agent coordination from scratch is full of footguns that Agent Mail was designed to sidestep:
 
@@ -862,26 +823,20 @@ Semi-persistent identity. Agent Mail generates whimsical names like "ScarletCave
 
 Before editing files, agents reserve them via Agent Mail:
 
-text
+```text
 file_reservation_paths( project_key="/data/projects/my-repo",
 agent_name="BlueLake", paths=["src/auth/*.rs"],
 ttl_seconds=3600,
 exclusive=true,
 reason="br-42: refactor auth"
 )
+```
 
 Other agents see the reservation and work on different files. A rigid locking system would deadlock when an agent crashes while holding a lock. Advisory reservations with expiry degrade gracefully. The worst case is a brief window where two agents touch the same file, which the pre-commit guard catches anyway.
 
 Agent Mail provides four high-level macros that wrap common multi-step patterns: macro_start_session (bootstrap: ensure project, register agent, fetch inbox), macro_prepare_thread (join existing thread with summary), macro_file_reservation_cycle (reserve, work, auto-release), and macro_contact_handshake (cross-agent contact setup).
 
-Broadcast vs. Point-to-Point
-
-Agent Mail uses targeted delivery and advisory locks to stay efficient. O(1) noise.
-
-Broadcast
-O(1) MESSAGES
-ADVISORY LOCKS
-HIGH SNR
+**Broadcast vs. Point-to-Point:** Agent Mail uses targeted delivery and advisory locks to stay efficient. O(1) noise, high SNR.
 
 ### bv: The Graph-Theory Compass
 
@@ -889,31 +844,22 @@ That right answer comes from the dependency structure of the tasks, and this can
 
 bv precomputes dependency metrics (PageRank, betweenness, HITS, eigenvector, critical path, cycle detection) so agents get deterministic, dependency-aware output. When multiple agents each independently query bv for priority, you get emergent coordination. Agents naturally spread across the optimal work frontier without needing a central coordinator.
 
-PATTERN
-High PageRank + High Betweenness MEANING
-Critical bottleneck
-ACTION
-DROP EVERYTHING, fix this first PATTERN
-High PageRank + Low Betweenness MEANING
-Foundation piece
-ACTION
-Important but not currently blocking PATTERN
-Low PageRank + High Betweenness MEANING
-Unexpected chokepoint ACTION
-Investigate why this is a bridge PATTERN
-Low PageRank + Low Betweenness MEANING
-Leaf work
-ACTION
-Safe to parallelize freely
+| Pattern | Meaning | Action |
+|---------|---------|--------|
+| High PageRank + High Betweenness | Critical bottleneck | DROP EVERYTHING — fix this first |
+| High PageRank + Low Betweenness | Foundation piece | Important but not currently blocking |
+| Low PageRank + High Betweenness | Unexpected chokepoint | Investigate why this is a bridge |
+| Low PageRank + Low Betweenness | Leaf work | Safe to parallelize freely |
 
 PageRank finds what everything depends on. Betweenness finds bottlenecks. The math knows your priorities better than gut intuition.
 
-bash
+```bash
 bv --robot-triage        # THE MEGA-COMMAND: full recommendations with scores bv --robot-next          # Minimal: just the single top pick + claim command
 bv --robot-plan          # Parallel execution tracks with unblocks lists bv --robot-insights      # Full graph metrics: PageRank, betweenness, HITS
 bv --robot-priority      # Priority recommendations with reasoning and confidence bv --robot-diff --diff-since <ref>  # Changes since last check
 CRITICAL
 Use ONLY --robot-* flags. Bare bv launches an interactive TUI that blocks your session.
+```
 
 bv was made in a single day and was just under 7k lines of Go. It was later rewritten to 80k lines with advanced features. This shows that effort does not correspond to impact. The tool started for humans but pivoted to being primarily for agents:
 
@@ -921,10 +867,11 @@ But the biggest improvement in terms of actual usefulness isn't for you humans a
 
 Advanced filtering lets you scope analysis to labels, historical point-in-time views, pre-filtered recipes, or grouped output:
 
-bash
+```bash
 bv --robot-plan --label backend              # Scope to label's subgraph bv --robot-insights --as-of HEAD~30          # Historical point-in-time
 bv --recipe actionable --robot-plan          # Only unblocked items bv --recipe high-impact --robot-triage       # Top PageRank scores
 bv --robot-triage --robot-triage-by-track    # Group by parallel streams bv --robot-triage --robot-triage-by-label    # Group by domain
+```
 
 ### Bead IDs as Threading Anchors
 
@@ -1005,28 +952,28 @@ You NEVER, under ANY CIRCUMSTANCE, stash, revert, overwrite, or otherwise distur
 
 ### Agent Fungibility
 
-<!-- INTERACTIVE EXHIBIT: Fungible Agent Crash Recovery
-     Six agents in a 2×3 grid with an EVENT LOG on the right.
+#### ⊛ Fungible Agent Crash Recovery
 
-     State — Default (All Alive):
-       Status bar: Alive: 6/6, Killed: 0, Recovered: 0, Completed: 0
-       Agents: ScarletCave (br-101), BlueLake (br-102), CoralBadger (br-103),
-               JadePeak (br-104), AmberFox (br-105), IvoryOwl (br-106)
-       EVENT LOG: \"Swarm initialized. All agents working.\"
+Six agents in a 2×3 grid with an EVENT LOG on the right.
+State — Default (All Alive):
+Status bar: Alive: 6/6, Killed: 0, Recovered: 0, Completed: 0
+Agents: ScarletCave (br-101), BlueLake (br-102), CoralBadger (br-103),
+JadePeak (br-104), AmberFox (br-105), IvoryOwl (br-106)
+EVENT LOG: "Swarm initialized. All agents working."
+State — Mid-Operation (Post-Crash & Recovery):
+Status bar: Alive: 3/6, Killed: 3, Recovered: 3, Completed: 8
+Alive agents: ScarletCave (red dot, "Idle, scanning for work..."),
+CoralBadger (orange dot, "Idle, scanning for work..."),
+AmberFox (orange dot, "Idle, scanning for work...")
+Crashed agents: BlueLake (CRASHED), JadePeak (CRASHED), IvoryOwl (CRASHED)
+EVENT LOG:
+- [blue] AmberFox completed br-104: Auth model.
+- [blue] ScarletCave completed br-106: API layer.
+- [orange] BlueLake recovered: session re-hydrated via AGENTS.md.
+- [orange] JadePeak recovered: took over br-102 from dead session.
+- [orange] IvoryOwl recovered: resumed br-103 via a fresh session.
 
-     State — Mid-Operation (Post-Crash & Recovery):
-       Status bar: Alive: 3/6, Killed: 3, Recovered: 3, Completed: 8
-       Alive agents: ScarletCave (red dot, \"Idle, scanning for work...\"),
-                     CoralBadger (orange dot, \"Idle, scanning for work...\"),
-                     AmberFox (orange dot, \"Idle, scanning for work...\")
-       Crashed agents: BlueLake (CRASHED), JadePeak (CRASHED), IvoryOwl (CRASHED)
-       EVENT LOG:
-         - [blue] AmberFox completed br-104: Auth model.
-         - [blue] ScarletCave completed br-106: API layer.
-         - [orange] BlueLake recovered: session re-hydrated via AGENTS.md.
-         - [orange] JadePeak recovered: took over br-102 from dead session.
-         - [orange] IvoryOwl recovered: resumed br-103 via a fresh session.
--->
+> *Interactive version available in the original web interface.*
          [blue] ScarletCave completed br-107: Export wizard.
          [blue] AmberFox completed br-102: Search index.
          [orange] ScarletCave recovered orphaned br-106: API layer.
@@ -1090,11 +1037,12 @@ Security vulnerabilities are usually symptoms of incomplete reasoning about the 
 
 You can create sessions using Claude Code, Codex, and Gemini-CLI in different panes in tmux, or use the ntm project (Named Tmux Manager) as the command center:
 
-bash
+```bash
 # Spawn a multi-agent session ntm spawn myproject --cc=2 --cod=1 --gmi=1
 # Send a prompt to ALL agents ntm send myproject "Your marching orders prompt here"
 # Send to specific agent type ntm send myproject --cc "Focus on the API layer"
 # Open the command palette (battle-tested prompts) ntm palette
+```
 
 NTM is useful but not mandatory. A mux is a terminal multiplexer: a layer that lets you manage multiple shell sessions inside one higher-level session manager. In practice, that usually means some combination of tabs, panes, detached sessions, and reconnection to work that is still running on a local or remote machine. tmux is the classic Unix terminal multiplexer, powerful and battle-tested. NTM is built on top of tmux, which is why it is a natural fit for multi-agent work. But tmux is only one mux. WezTerm has its own built-in mux. Zellij is another. The method cares that you have a workable orchestration layer, not that you picked one specific multiplexer.
 
@@ -1186,19 +1134,21 @@ OPEN BEADS	CLAUDE (CC)	CODEX (COD)	GEMINI (GMI) 400+	4	4	2
 <100	1	1	1
 The Thundering Herd
 
-<!-- INTERACTIVE EXHIBIT: Thundering Herd vs. Staggered Start
-     5-phase animation comparing two launch strategies.
-     Phases: 1-Spawn, 2-Claim, 3-Resolve, 4-Flow, 5-Outcome.
-     COLLISION-PRONE (Thundering Herd): All agents start together, pile onto same frontier.
-       CONFLICTS: 0, IDLE BURN: 6, COMPLETED: 0 at Spawn phase.
-     FRONTIER-FRIENDLY (Staggered Start): Agents enter beats apart, each sees different frontier.
-       CONFLICTS: 0, IDLE BURN: 2, COMPLETED: 0 at Spawn phase.
-     At Outcome phase: staggered agents have shipped work with minimal idle burn.
-     Lesson: "At this phase, the herd path has 0 lock conflicts and 6 units of idle burn,
-     while the staggered path has 0 conflicts and 2 idle burn. The difference is not
-     smarter agents. It is whether the system lets them reach distinct frontier at
-     distinct times."
--->
+#### ⊛ Thundering Herd vs. Staggered Start
+
+5-phase animation comparing two launch strategies.
+Phases: 1-Spawn, 2-Claim, 3-Resolve, 4-Flow, 5-Outcome.
+COLLISION-PRONE (Thundering Herd): All agents start together, pile onto same frontier.
+CONFLICTS: 0, IDLE BURN: 6, COMPLETED: 0 at Spawn phase.
+FRONTIER-FRIENDLY (Staggered Start): Agents enter beats apart, each sees different frontier.
+CONFLICTS: 0, IDLE BURN: 2, COMPLETED: 0 at Spawn phase.
+At Outcome phase: staggered agents have shipped work with minimal idle burn.
+Lesson: "At this phase, the herd path has 0 lock conflicts and 6 units of idle burn,
+while the staggered path has 0 conflicts and 2 idle burn. The difference is not
+smarter agents. It is whether the system lets them reach distinct frontier at
+distinct times."
+
+> *Interactive version available in the original web interface.*
 
 When you start up like 5 of each kind of agent and have them all collaborate in the same shared workspace, you can hit the classic "thundering herd" problem. The fix: stagger agent starts by 30 seconds minimum, make sure agents mark beads as in-progress quickly, and wait 4 seconds after launch before sending the initial prompt. For Codex specifically: send Enter twice after pasting long prompts (Codex has an input buffer quirk that sometimes swallows the first submit).
 
@@ -1307,8 +1257,9 @@ For a small project like Atlas Notes, a first swarm might look like this: Claude
 
 When you hit rate limits, use CAAM (Coding Agent Account Manager) for sub-100ms account switching:
 
-bash
+```bash
 caam status                     # See current accounts and usage caam activate claude backup-2   # Switch instantly
+```
 
 ---
 
@@ -1362,7 +1313,7 @@ Larger projects produce massive test suites. BrennerBot has nearly 5,000 tests. 
 
 After any substantive code changes, always verify with compiler checks:
 
-bash
+```bash
 # Rust
 cargo check --all-targets cargo clippy --all-targets -- -D warnings
 cargo fmt --check
@@ -1372,6 +1323,7 @@ go vet ./...
 # TypeScript
 bun typecheck
 bun lint
+```
 
 ### UI/UX Polish
 
@@ -1570,7 +1522,7 @@ Not every tool is used the same way. br, bv, ubs, and rch are ordinary shell com
 
 The complete interaction flow from spawn to memory:
 
-text
+```text
 NTM spawns agents --> Agents read AGENTS.md --> Agents register with Agent Mail
 --> Agents query bv for task priority --> Agents claim beads via br
 --> Agents reserve files via Agent Mail --> Agents implement and test
@@ -1578,6 +1530,7 @@ NTM spawns agents --> Agents read AGENTS.md --> Agents register with Agent Mail
 --> Agents commit and push
 --> CASS indexes the session
 --> CM distills procedural memory --> Next cycle is better
+```
 
 ### The VPS Environment
 
@@ -1603,7 +1556,7 @@ Ctrl-a
 
 Use acfs newproj to bootstrap a project with full tooling:
 
-bash
+```bash
 acfs newproj myproject --interactive
 # Creates:
 # myproject/
@@ -1612,6 +1565,7 @@ acfs newproj myproject --interactive
 # ├── .claude/     # Claude Code settings
 # ├── AGENTS.md    # Instructions for AI agents
 # └── .gitignore   # Standard ignores
+```
 
 ### The Incremental Onboarding Path
 
@@ -1714,9 +1668,10 @@ MUST BE TRUE BEFORE ADVANCING Reviews, tests, UBS, remaining-work beads, and fee
 
 On the VPS, agents run with full permissions via short aliases:
 
-bash
+```bash
 alias cc='NODE_OPTIONS="--max-old-space-size=32768" claude --dangerously-skip-permissions' alias cod='codex --dangerously-bypass-approvals-and-sandbox'
 alias gmi='gemini --yolo'
+```
 
 These are configured automatically by the installer. DCG provides the safety net that makes this viable.
 
@@ -1760,17 +1715,19 @@ Many of the same concepts we use for people are directly applicable to agents. '
 
 CM (CASS Memory System) implements a three-layer memory architecture that turns raw session history into operational knowledge:
 
-text
+```text
 EPISODIC MEMORY (cass): Raw session logs from all agents ↓ cass search
 WORKING MEMORY (Diary): Structured session summaries ↓ reflect + curate
 PROCEDURAL MEMORY (Playbook): Distilled rules with confidence scores
+```
 
 Rules have a 90-day confidence half-life (decays without feedback) and a 4x harmful multiplier (one mistake counts 4x as much as one success). Rules mature through stages: candidate to established to proven.
 
-bash
+```bash
 cm context "Building an API" --json   # Get relevant memories for a task cm recall "authentication patterns"   # Search past sessions
 cm reflect                            # Update procedural memory from recent sessions cm mark b-8f3a2c --helpful            # Reinforce a useful rule
 cm mark b-xyz789 --harmful --reason "Caused regression"  # Flag a bad rule
+```
 
 The cm context command is the single most important pre-task ritual. Running it at the start of a session gives agents knowledge distilled from every previous session that touched similar work.
 
@@ -1809,9 +1766,10 @@ Not generalizable yet.
 
 The mining query (user prompts live at lines 1-3 of session entries; --fields minimal reduces output 5x):
 
-bash
+```bash
 cass search "*" --workspace /data/projects/PROJECT --json --fields minimal --limit 500 \ | jq '[.hits[] | select(.line_number <= 3) | .title[0:80]]
 | group_by(.) | map({prompt: .[0], count: length}) | sort_by(-.count) | map(select(.count >= 5)) | .[0:30]'
+```
 
 This is how the prompt library in this guide was originally discovered and validated. It was not invented top-down; it was mined bottom-up from hundreds of real sessions.
 
@@ -1890,8 +1848,9 @@ Let agents use it in real work. Do not test in isolation. Deploy the tool and sk
 Mine the sessions. After 10+ sessions of real usage, search CASS for sessions where agents invoked the tool.
 Feed findings into a rewrite. Give the session analysis to a fresh agent along with the current skill file. Ask it to rewrite the skill to fix every issue.
 Repeat. The revised skill produces better sessions, which give you better data for the next revision. After 3-4 cycles, the skill is dramatically more reliable than the original.
-bash
+```bash
 # Step 3: Mine sessions for patterns cass search "tool_name" --workspace /data/projects/PROJECT --json --limit 100
+```
 
 What to look for in the results:
 
@@ -1907,18 +1866,20 @@ Each cycle takes less human effort than the previous one because the meta-skill 
 
 ### The Four Layers of Recursive Improvement
 
-<!-- INTERACTIVE TABS: The Four Layers of Recursive Improvement
-     Four tabs showing increasing levels of ambition.
-     Tab 1 — Agent Feedback Forms: "Layer 1 requires zero infrastructure. You can do this
-       today, right now, with any tool and two agent sessions."
-     Tab 2 — CASS-Powered Refinement: "Layer 2 reveals patterns no single agent would notice
-       from its own experience alone. 15 agents struggling with the same flag means the flag
-       is the problem."
-     Tab 3 — Skills That Generate Work: "At Layer 3, the system is not just refining how it
-       works but actively deciding what to work on next. The human curates rather than directs."
-     Tab 4 — Skills Bundled With Installers: "At Layer 4, new users never hit the failure
-       modes that plagued early adopters. The improvement is invisible, baked into the installer."
--->
+#### ⊛ The Four Layers of Recursive Improvement
+
+Four tabs showing increasing levels of ambition.
+Tab 1 — Agent Feedback Forms: "Layer 1 requires zero infrastructure. You can do this
+today, right now, with any tool and two agent sessions."
+Tab 2 — CASS-Powered Refinement: "Layer 2 reveals patterns no single agent would notice
+from its own experience alone. 15 agents struggling with the same flag means the flag
+is the problem."
+Tab 3 — Skills That Generate Work: "At Layer 3, the system is not just refining how it
+works but actively deciding what to work on next. The human curates rather than directs."
+Tab 4 — Skills Bundled With Installers: "At Layer 4, new users never hit the failure
+modes that plagued early adopters. The improvement is invisible, baked into the installer."
+
+> *Interactive version available in the original web interface.*
 
 The recursive pattern operates at increasing levels of ambition. The mistake is trying to build all four layers at once. Start simple and let the need for the next layer emerge naturally.
 
@@ -2069,12 +2030,13 @@ Plan-bead gap: The synthesis step sometimes stalls between plan revision and bea
 
 The complete system is free and 100% open-source. A beginner with a credit card and a laptop can visit the wizard, follow step-by-step instructions to rent a VPS, paste one curl|bash command, type onboard, and start building with AI agents immediately.
 
-bash
+```bash
 # 1. Rent a VPS (OVH or Contabo, ~$40-56/month, Ubuntu)
 # 2. SSH in and run the one-liner curl -fsSL https://agent-flywheel.com/install.sh | bash
 # 3. Reconnect, then learn the workflow onboard
 # 4. Create your first project acfs newproj my-first-project --interactive
 # 5. Spawn agents and start building ntm spawn my-first-project --cc=2 --cod=1 --gmi=1
+```
 
 You don't even need to know much at all about computers; you just need the desire to learn and some grit and determination. And about $500/month for the subscriptions, plus another $50 or so for the cloud server.
 
