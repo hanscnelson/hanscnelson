@@ -185,9 +185,7 @@ Where you catch the bug determines the rework bill
 
 Inject the same mistake at different layers. The deeper it lands, the more downstream structure has already hardened around it. This is the Law of Rework Escalation.
 
-**Three layers — deeper = costlier:**
-
-**Rework Intuition**
+**Three layers — deeper = costlier  -->  Rework Intuition:**
 
 Plan Space: Fixes are pure reasoning. Zero code churn.
 
